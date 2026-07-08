@@ -1,16 +1,8 @@
 import os
 import traceback
 import streamlit as st
-from dotenv import load_dotenv
 from crew import run_market_analysis
 
-load_dotenv()
-
-st.set_page_config(
-    page_title="Autonomous Market Analyst",
-    page_icon="📊",
-    layout="centered",
-)
 
 def get_secret_or_env(key):
     try:
@@ -20,21 +12,25 @@ def get_secret_or_env(key):
         pass
     return os.environ.get(key, "")
 
+
+st.set_page_config(
+    page_title="Autonomous Market Analyst",
+    page_icon="📊",
+    layout="centered",
+)
+
 st.sidebar.title("⚙️ Configuration")
-st.sidebar.markdown("Provide your API keys below.")
 
 google_api_key = st.sidebar.text_input(
     "Google Gemini API Key",
     value=get_secret_or_env("GOOGLE_API_KEY"),
     type="password",
-    help="Get a key at https://aistudio.google.com/app/apikey",
 )
 
 serper_api_key = st.sidebar.text_input(
     "Serper.dev API Key",
     value=get_secret_or_env("SERPER_API_KEY"),
     type="password",
-    help="Get a key at https://serper.dev/api-keys",
 )
 
 st.sidebar.markdown("---")
@@ -51,7 +47,6 @@ st.caption("AI agents that research the web and write a blog post — automatica
 topic = st.text_input(
     "What topic should the agents research?",
     value="Latest trends in the AI industry",
-    placeholder="e.g. Latest trends in renewable energy",
 )
 
 run_button = st.button("🚀 Run Market Analysis", type="primary", use_container_width=True)
@@ -91,4 +86,3 @@ if st.session_state.blog_post:
         mime="text/markdown",
         use_container_width=True,
     )
-  
