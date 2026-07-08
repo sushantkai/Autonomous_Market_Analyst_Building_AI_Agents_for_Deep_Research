@@ -1,9 +1,1 @@
-$req = @'
-crewai==0.51.0
-crewai-tools==0.8.3
-langchain-google-genai==1.0.10
-langchain-core==0.3.15
-streamlit==1.38.0
-python-dotenv==1.0.1
-'@
-$req | Out-File -FilePath requirements.txt -Encoding utf8
+
