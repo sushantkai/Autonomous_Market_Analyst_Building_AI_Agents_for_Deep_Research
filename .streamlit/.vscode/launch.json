@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Streamlit: Run app.py",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": ["run", "app.py"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Run crew.py (CLI test)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/crew.py",
+            "args": ["latest trends in the AI industry"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
